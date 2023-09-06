@@ -1,0 +1,101 @@
+.add-person-modal-container {
+    position: fixed;
+    top: 200px;
+    left: 460px;
+    width: 30%;
+    height: 50%;
+    /* background-color: rgb(65, 72, 173);  */
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+
+.add-person-modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%;
+    max-height: 400px;
+    height: 100%;
+}
+
+
+
+.add-person-modal-content h2 {
+    margin-top: 0;
+}
+
+
+/* .add-person-modal-content form {
+    display: flex;
+    flex-direction: column;
+} */
+
+
+.add-person-modal-content label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+
+.add-person-modal-content input {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+.add-person-modal-content button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 30px;
+    
+}
+
+.add-person-modal-body {
+display: flex;
+justify-content:flex-start;
+    /* flex-direction: column; */
+
+}
+
+
+/* .close-edit-modal {
+    margin-left: 20px;
+     background-color: #e9eaec;
+} */
+
+
+
+
+.add-person-modal-content button:hover {
+     background-color: #0056b3;
+}
+
+
+.add-person-modal-content button[type="button"] {
+     background-color: #ccc;
+     margin-top: 10px;
+     margin-right: 10px;
+     max-height: 40px;
+    height: 100%;
+}
+
+.add-person-modal-content button[type="submit"] {
+     width: 150px;
+}
+
+
+.add-person-modal-content button[type="button"]:hover {
+     background-color: #999;
+}

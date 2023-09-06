@@ -19,6 +19,7 @@ const AddPerson = ({ addPerson }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("AddPerson was invoked")
         if (newPerson.name && newPerson.email && newPerson.dateOfBirth) {
             //call the addPerson function from the parent component to add the new person
             addPerson(newPerson);
@@ -35,7 +36,7 @@ const AddPerson = ({ addPerson }) => {
 
     return (
         <div>
-            <h2>Add Person</h2>
+            <h2>Add New Person</h2>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name:</label>

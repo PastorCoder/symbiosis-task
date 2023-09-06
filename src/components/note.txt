@@ -8,3 +8,61 @@
               setLoading(false);
         }
       })
+
+
+
+
+
+      Step 3: Create Components
+Inside your React app, create the following components:
+
+App.js: The main component to manage the app state.
+PeopleList.js: Display a list of people.
+AddPerson.js: Form to add a new person.
+EditPerson.js: Form to edit an existing person.
+Person.js: Component to display individual person details.
+
+show the complete code for
+
+
+editPerson={editPerson}
+
+
+
+
+
+
+
+ const addNewRow = () => {
+        // Determine the next available ID based on the existing data
+        const nextId = people.length > 0 ? Math.max(...people.map((person) => person.id)) + 1 : 1;
+
+
+        // Prompt the user for input or use your preffered method to gather data
+        const newName = prompt("Enter Name:");
+        const newEmail = prompt("Enter Email:");
+        const newDateOfBirth = prompt("Enter Date of Birth:");
+
+
+        if (newName && newEmail && newDateOfBirth) {
+          // Create a new empty person object with unique id
+          const newPerson = {
+            id: nextId,
+            name: "",
+            email: "",
+            dateOfBirth: "",
+          };
+
+          //update the state with the new person
+          setPeople((prevPeople) => [...prevPeople, newPerson]);
+        } else {
+            // Handle the case where the user cancels or provide incomplete
+            alert("Please provide all required data.")
+        }
+
+       
+    };
+
+
+
+

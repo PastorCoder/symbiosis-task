@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/edit-person-modal.css";
-import CloseIcon from "@mui/icons-material/Close";
+
 
 
 const EditPersonModal = ({ person, onSave, onClose }) => {
