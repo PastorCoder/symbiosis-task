@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+
 import './App.css';
+import DisplayListOfPeople from "./components/DisplayListOfPeople";
 
 function App() {
   return (
     <div className="App">
-      <h1>Starting now...</h1>
+      <DisplayListOfPeople />
     </div>
   );
 }

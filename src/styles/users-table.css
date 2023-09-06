@@ -1,0 +1,23 @@
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px, solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+.add-user {
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 900px;
+}
