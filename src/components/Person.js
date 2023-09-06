@@ -9,7 +9,6 @@ const Person = ({ person, editPerson }) => {
     // if (!person) {
     //     return <div>No person data available</div>
     // }
-  console.log("Person :", person)
 
     
     
