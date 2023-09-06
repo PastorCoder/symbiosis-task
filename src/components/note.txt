@@ -1,0 +1,10 @@
+ if (response.data && Array.isArray(response.data)) {
+            //update if data is valid
+              setPeople(response.data[0]);
+              setLoading(false);
+          } else {
+            //   data is not in the expected format
+              setError("Data is not in the expected format");
+              setLoading(false);
+        }
+      })
