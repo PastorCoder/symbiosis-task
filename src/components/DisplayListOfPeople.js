@@ -6,6 +6,7 @@ import EditPerson from "./EditPerson";
 
 
 
+
 const DisplayListOfPeople = () => {
     const [people, setPeople] = useState([]);
     const [editing, setEditing] = useState(false);
@@ -19,7 +20,7 @@ const DisplayListOfPeople = () => {
       axios
         .get("https://64f645fd2b07270f705e5970.mockapi.io/api/peopleList/users")
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           if (response.status === 200) {
             //update if data is valid
             setPeople(response.data);
@@ -111,6 +112,7 @@ const DisplayListOfPeople = () => {
             />
           </div>
         )}
+        
       </div>
     );
 };

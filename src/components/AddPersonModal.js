@@ -13,11 +13,7 @@ const AddPersonalModal = ({ onClose, onAddPerson }) => {
   const modalContainerRef = useRef(null);
 
 
-  {/**const handleOutsideClick = (e) => {
-    if (modalContainerRef.current && !modalContainerRef.current.contains(e.target)) {
-      onClose();
-    }
-  } */}
+  
  
   const addPerson = (newPerson) => {
     //Add a new person to the mock API
@@ -27,7 +23,7 @@ const AddPersonalModal = ({ onClose, onAddPerson }) => {
         newPerson
       )
       .then((response) => {
-        setPeople([...people, response.data]);
+        setPeople([...people, response.data, ...newPerson]);
       })
       .catch((error) => {
         console.error("Error adding a person", error);
@@ -36,15 +32,7 @@ const AddPersonalModal = ({ onClose, onAddPerson }) => {
 
 
 
-  {/**attach the event listener when component mounts
-  useEffect(() => {
-    document.addEventListener("click", handleOutsideClick);
-
-    //clean up the event listener when the component unmounts
-    return () => {
-      document.removeEventListener("click", handleOutsideClick);
-    }
-  }, []) */}
+ 
 
 
 

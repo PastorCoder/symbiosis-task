@@ -18,6 +18,11 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
+.avatar {
+    width: 4%;
+    border-radius: 50%;
+}
+
 
 .add-user {
     padding: 10px 20px;

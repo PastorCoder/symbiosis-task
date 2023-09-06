@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 
+
 const AddPerson = ({ addPerson }) => {
     const [newPerson, setNewPerson] = useState({
         name: "",
@@ -19,7 +20,6 @@ const AddPerson = ({ addPerson }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("AddPerson was invoked")
         if (newPerson.name && newPerson.email && newPerson.dateOfBirth) {
             //call the addPerson function from the parent component to add the new person
             addPerson(newPerson);
@@ -72,7 +72,7 @@ const AddPerson = ({ addPerson }) => {
                     />
                 </div>
                 <div>
-                    <button type="submit">Add</button>
+                    <button type="submit">Register User</button>
                 </div>
             </form>
         </div>
