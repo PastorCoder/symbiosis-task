@@ -1,3 +1,7 @@
+.table-container {
+    margin-bottom: 100px;
+}
+
 table {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
@@ -16,8 +20,39 @@ tr:nth-child(even) {
 
 
 .add-user {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 30px;
     width: 200px;
     margin-top: 20px;
     margin-bottom: 20px;
     margin-right: 900px;
+    font-size: larger;
+}
+
+
+
+
+.icon-button {
+    padding: 0 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+.remove-icon {
+    padding: 0 10px;
+    background-color: #b0acac;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }

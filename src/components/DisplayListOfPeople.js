@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ListOfPeople from "./ListOfPeople";
-// import AddPerson from "./AddPerson1";
+import AddPerson from "./AddPerson";
 import EditPerson from "./EditPerson";
 
 
@@ -38,7 +38,7 @@ const DisplayListOfPeople = () => {
     }, []);
 
 
-    const addPerson = (newPerson) => {
+   {/** const addPerson = (newPerson) => {
         //Add a new person to the mock API
         axios
             .post(
@@ -49,7 +49,7 @@ const DisplayListOfPeople = () => {
             .catch((error) => {
                 console.error("Error adding a person", error);
             });
-    };
+    }; */}
 
 
 
@@ -67,7 +67,7 @@ const DisplayListOfPeople = () => {
     };
 
 
-    const EditPerson = (person) => {
+    const editPerson = (person) => {
         //set editing mode and currentPerson state for editing
         setEditing(true);
         setCurrentPerson(person);
@@ -95,7 +95,6 @@ const DisplayListOfPeople = () => {
 
     return (
       <div>
-        <h1>People CRUD App</h1>
         {editing ? (
           <EditPerson
             currentPerson={currentPerson}
@@ -103,11 +102,14 @@ const DisplayListOfPeople = () => {
             setEditing={setEditing}
           />
         ) : (
-          <ListOfPeople
-            people={people}
-            deletePerson={deletePerson}
-            // editPerson={editPerson}
-          />
+          <div>
+            {/**<AddPerson addPerson={addPerson} /> */}
+            <ListOfPeople
+              people={people}
+              deletePerson={deletePerson}
+              editPerson={editPerson}
+            />
+          </div>
         )}
       </div>
     );

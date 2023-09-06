@@ -2,9 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Person from "./Person";
 import EditPersonModal from "./EditPersonModal";
+import AddPersonModal from "./AddPersonModal";
+// import AddPerson from "./AddPerson";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import PersonRemoveIcon from "@mui/icons-material/PersonRemove";
 import CreateIcon from "@mui/icons-material/Create";
+import Tooltip from "@mui/material/Tooltip";
+import CircularProgress from "@mui/material/CircularProgress";
 import "../styles/users-table.css";
 
 
@@ -43,6 +47,27 @@ function ListOfPeople({ deletePerson }) {
     
     
     //function to handle registration when the form is submitted in AppPersonModal
+    const handleRegisterUser = (newUser) => {
+
+        //Add the person to the people array
+        setPeople((prevPeople) => [...prevPeople, newUser]);
+
+
+        //Send a post request to API to register user
+        axios
+          .post(
+            "https://64f645fd2b07270f705e5970.mockapi.io/api/peopleList/users", newUser)
+            .then((response) => {
+                if (response.status === 200) {
+                    console.log("registration Successfl :", newUser);
+                } else {
+                    console.error("Failed to register user :", response.statusText)
+              }
+          })
+            .catch((error) => {
+                console.error("An error occurred while registering user:", error);
+          });
+    }
 
 
     
@@ -103,7 +128,11 @@ function ListOfPeople({ deletePerson }) {
 
 
   if (loading) {
-    return <div>Loading....</div>;
+    return (
+      <div>
+        <CircularProgress />
+      </div>
+    );
     };
 
 
@@ -119,7 +148,7 @@ function ListOfPeople({ deletePerson }) {
     console.log("peaople state", people);
 
   return (
-    <div>
+    <div className="table-container">
       <h2>List of People</h2>
       <button onClick={addNewRow} className="add-user">
         Register User
@@ -142,12 +171,24 @@ function ListOfPeople({ deletePerson }) {
               <td>{person.email}</td>
               <td>{formatDateOfBirth(person.dateOfBirth)}</td>
               <td>
-                <button onClick={() => removeRow(person.id)}>
-                  <PersonRemoveIcon />
-                </button>
-                <button onClick={() => handleEditClick(person)}>
-                  <CreateIcon />
-                </button>
+                <Tooltip title={`Remove ${person.name}`}>
+                  <button
+                    onClick={() => removeRow(person.id)}
+                    className="remove-icon"
+                  >
+                    <PersonRemoveIcon />
+                  </button>
+                </Tooltip>
+
+                <Tooltip title="Edit user details">
+                  <button
+                    onClick={() => handleEditClick(person)}
+                    className="icon-button"
+                  >
+                    <CreateIcon />
+                  </button>
+                </Tooltip>
+
                 <Person person={person} editPerson={editPerson} />
               </td>
             </tr>
@@ -155,21 +196,20 @@ function ListOfPeople({ deletePerson }) {
         </tbody>
       </table>
 
-      {/**<ul>
-        {people.map((person) => (
-          <li key={person.id}>
-                <Person person={person} />
-                <button onClick={() => editPerson(person)}>Edit</button>
-                <button onClick={() => deletePerson(person.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>  */}
+   
 
       {showEditModal && (
         <EditPersonModal
           person={selectedPerson}
           onSave={handleSaveEdit}
           onClose={() => setShowEditModal(false)}
+        />
+      )}
+
+      {showAddPersonModal && (
+        <AddPersonModal
+          onClose={() => setShowAddPersonModal(false)}
+          onRegister={handleRegisterUser}
         />
       )}
     </div>

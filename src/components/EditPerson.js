@@ -85,3 +85,6 @@ const EditPerson = ({ currentPerson, updatePerson, setEditing, onSave }) => {
       </div>
     );
 };
+
+
+export default EditPerson;
